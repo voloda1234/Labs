@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "CppUnitTest.h"
-#include "../lab5_1/lab5.1.cpp"
+#include "../lab6_1/lab6.1int.cpp"
+#include "../lab6_1/lab6.1.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -12,12 +13,20 @@ namespace UnitTest1
 		
 		TEST_METHOD(TestMethod1)
 		{
-			double x = 5.0;
-			double y = 6.0;
+			const int n = 5;
+			int a[n] = {4, 12, -2, 1, -6};
+			int expectation = CountElements(a, n);
+			int actual = 4;
+			Assert::AreEqual(expectation, actual);
+		}
 
-			double result;
-			result = (function(x * y, pow(x, 2), pow(y, 2)) - pow(function(1, x, y), 2)) / 1 + function(sqrt(x), pow(y, 2), 1);
-			Assert::AreEqual(result, 279.0);
+		TEST_METHOD(TestMethod2)
+		{
+			const int n = 5;
+			int a[n] = { 4, 12, -2, 1, -6 };
+			int expectation = SumElements(a, n, 0, 0);
+			int actual = 15;
+			Assert::AreEqual(expectation, actual);
 		}
 	};
 }
